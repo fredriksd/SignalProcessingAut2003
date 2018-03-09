@@ -1,5 +1,5 @@
+%Assignment 2
 close all
-cd('/Users/Fredrik/Desktop/Droneteknologi/2_år/AUT-2003/signalProcessing/')
 fileRead('pressure_temp_relhumidity_CO2ppm.txt')
 
 %Reading data from .txt file and plotting 
@@ -14,25 +14,25 @@ function [] = fileRead(file)
     
     figure('name',['Measured data from ', file])
     subplot(2,2,1)
-    plot(0:time-1,pressure)
+    plot(0:time-1,pressure), grid on
     title('Pressure')
     xlabel('Time [hour]')
     ylabel('Pressure [KPa]')
     
     subplot(2,2,2)
-    plot(0:time-1,temperature)
+    plot(0:time-1,temperature), grid on
     title('Temperature')
     xlabel('Time [hour]')
     ylabel('Temperature [^\circC]')
     
     subplot(2,2,3)
-    plot(0:time-1,humidity)
+    plot(0:time-1,humidity), grid on
     title('Humidity')
     xlabel('Time [hour]')
     ylabel('Humidity [%]')
     
     subplot(2,2,4)
-    plot(0:time-1,gasLevel)
+    plot(0:time-1,gasLevel), grid on
     title('Gas emission')
     xlabel('Time [Hour]')
     ylabel('Emission [PPM]')
