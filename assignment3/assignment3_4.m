@@ -1,3 +1,4 @@
+%Exercise 4
 clc, close all, clear all
 I = imread('Static/lenna.png');
 noisyI = imnoise(I,'salt & pepper', 0.05);

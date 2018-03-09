@@ -1,4 +1,7 @@
 %Assignment3
+%Make a structure array with 20 movies, with its release year, rating and
+%genre from IMDB. Make a function that based on given criterias can give
+%out the movies who match the criterias. 
 
 %Declaring 20 empty struct array elements
 movieStruct(20).Movie = [];
@@ -33,12 +36,10 @@ genres = {'Action/Comedy', 'Action/Adventure/Sci-Fi','Action/Adventure/Sci-Fi','
 %Looping through the struct array and appending each
 %element to its appropriate field
 for i = 1:length(movieStruct)
-    
     movieStruct(i).Movie = movies{i};
     movieStruct(i).Year = years(i);
     movieStruct(i).Rating = ratings(i);
     movieStruct(i).Genre = genres{i};
-    
 end
 
 

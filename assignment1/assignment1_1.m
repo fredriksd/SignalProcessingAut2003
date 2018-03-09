@@ -19,6 +19,7 @@ disp('out = ')
 disp(out)
 diag_out = diag(out);
 
+%Returning number of rows and columns
 [rows, cols] = size(out);
 
 %replacing the diagonal elements of out with 1
@@ -51,19 +52,25 @@ end
 %sizes and adds them assuming the missing elements or appended elements
 %are zeros.
 function out = matrixAdd(a,b)
+    %Number of rows and columns
     [rowsa, colsa] = size(a);
+    %Number of rows and columns
     [rowsb, colsb] = size(b);
+    %New matrix has the maximum number of rows and 
+    %columns based on a and b
     rowsOut = max(rowsa,rowsb);
     colsOut = max(colsa, colsb);
-    
     out = zeros(rowsOut, colsOut);
     
+    %Loop through the new array and 
+    %append every element from a
     for i = 1:rowsa
        for j = 1:colsa 
            out(i,j) = a(i,j);
        end   
     end
-    
+    %Loop through the new array and
+    %add the elements of b to those elements. 
     for i = 1:rowsb
         for j = 1:colsb
             out(i,j) = out(i,j) + b(i,j);

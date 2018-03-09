@@ -15,7 +15,7 @@ function [] = Find_movies_with_parameters(year_search, average_rating_search, ge
     assignment1_3;
     %Counter variable
     movies = 0;
-    fprintf("Year_search: %d, average_rating: %.2f, genre_search: %s \n",...
+    fprintf("Year_search: %d or later, average_rating: %.2f or above, genre_search: %s \n",...
         year_search, average_rating_search, genre_search);
     %Loop through the structure array
     for i = 1:length(movieStruct)
