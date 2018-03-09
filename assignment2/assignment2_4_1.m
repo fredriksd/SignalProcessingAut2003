@@ -30,6 +30,7 @@ subplot(3,2,1)
 plot(t,y1), title('y1(t)')
 xlabel('t [s]')
 subplot(3,2,2)
+
 stem(abs(F1)), title('Fourier trans. of y1'), grid on 
 xlabel('f [s^{-1}]')
 
