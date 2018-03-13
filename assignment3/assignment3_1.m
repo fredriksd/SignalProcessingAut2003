@@ -6,23 +6,23 @@ R = I(:,:,1); %Red
 G = I(:,:,2); %Green
 B = I(:,:,3); %Blue
 
-%{
-R = uint8(double(R)*0.90);
-
-%G = sqrt(double(G));
-%G = double(G)*0.75*1.45;
-G = double(G)*1.22;
+%Square root of green channel
+G = double(G);
+G = sqrt(G);
+%Normalizing channel
+G = (G-min(min(G))).*((255-0)./(max(max(G))-min(min(G)))) + 0;
+%Typecast it back into uint8
 G = uint8(G);
- 
+
+%Square of blue channel
 B = double(B);
-B = B*0.90; 
+B = B.^2; 
+%Normalizing channel
+B = (B-min(min(B))).*((255-0)./(max(max(B))-min(min(B)))) + 0;
+%Typecast it back into uint8
 B = uint8(B);
-%}
 
-R = uint8((double(R)*1.05)*0.82);
-G = uint8((double(G)*1.47)*0.82);
-B = uint8(double(B)*1.05)*0.60;
-
+%Concatenating channels to make new image
 newI = cat(3, R, G, B);
 
  
@@ -38,6 +38,7 @@ imshow(I), title('Original')
 subplot(1,2,2)
 imshow(newI), title('Modified')
  
+
  %Histography plot
 figure(2)
 subplot(3,1,1)
