@@ -1,3 +1,6 @@
+%Exercise 1
+%Read 'test.jpg' and do a histographic equilization on it
+
 close all, clear all
  
 I = imread('Static/test.jpg');
@@ -24,12 +27,6 @@ B = uint8(B);
 
 %Concatenating channels to make new image
 newI = cat(3, R, G, B);
-
- 
-%newI = I;
-%newI(:,:,1) = R;
-%newI(:,:,2) = uint8(G);
-%newI(:,:,3) = uint8(B);
  
 %Image plot
 figure(1)

@@ -23,14 +23,14 @@ blueCircle = zeros(imgRows, imgCols);
 %Loop through the rows and columns of 
 %the original image and set the indexes if the criterias
 %for the different objects match:
-%red [171 50 59]
+%red [237 27 36]
 %green [48 180 70]
 %blue [38 144 186]
 %Note that it is only the objects that are being set, not the 
 %inscribed objects. This will be inverted later (due to imfill)
 for i = 1:imgRows
     for j = 1:imgCols
-        if((R(i,j) > 170) && (G(i,j) < 60))
+        if((R(i,j) > 200) && (G(i,j) < 60) && (B(i,j) > 20))
            redRect(i,j) = 1;
         else
             redRect(i,j) = 0;
@@ -40,7 +40,7 @@ for i = 1:imgRows
         else
             greenRect(i,j) = 0;
         end
-        if(G(i,j) > 140 && (B(i,j) > 180) && R(i,j) < 10)
+        if(G(i,j) > 150 && (B(i,j) > 190) && R(i,j) < 10)
            blueCircle(i,j) = 1;
         else
             blueCircle(i,j) = 0;    
@@ -55,7 +55,7 @@ for i = 1:imgRows
     end
 end
 
-
+%Fill the black holes
 redRect = imfill(redRect, 'holes');
 greenRect = imfill(greenRect, 'holes');
 blueCircle = imfill(blueCircle, 'holes');
@@ -64,9 +64,7 @@ blueCircle = imfill(blueCircle, 'holes');
 redRect = imcomplement(logical(redRect));
 greenRect = imcomplement(logical(greenRect));
 blueCircle = imcomplement(logical(blueCircle));
-%redRect = logical(invertMatrix(redRect));
-%greenTriangle = logical(invertMatrix(greenTriangle));
-%blueCircle = logical(invertMatrix(blueCircle));
+
 
 subplot(3,2,1)
 imshow(rgbImg)
@@ -81,7 +79,6 @@ subplot(3,2,4)
 imshow(blueCircle)
 title('Blue circle');
 subplot(3,2,5)
-title('Grayscale to binary')
-imshow(newImg)
+imshow(newImg), title('Grayscale to binary')
 
 

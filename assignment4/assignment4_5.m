@@ -4,6 +4,7 @@
 clear, close all
 x = 500;
 y = 500;
+h_length = 3;
 no_of_indx = 20; % Size of the blocks
 I = zeros(x,y);
 
@@ -27,6 +28,7 @@ h = [-1 -1 -1;
 ImFilter = imfilter(I, h,'conv');
 
 hFilter = zeros(rows, cols);
+
 for i = 1:size(h,1)
     for j = 1:size(h,2)
         hFilter(i,j) = h(i,j);
@@ -41,9 +43,9 @@ fourierH = fft2(hFilter);
 filterI = real(ifft2(fourierI .* fourierH));
 
 %Plot the images for comparison
-subplot(1,3,1)
+subplot(2,2,1)
 imshow(uint8(I)), title('Original')
-subplot(1,3,2)
+subplot(2,2,3)
 imshow(uint8(filterI)),title('Convolution with Fourier Transform')
-subplot(1,3,3)
+subplot(2,2,4)
 imshow(uint8(ImFilter)), title('imfilter()')
