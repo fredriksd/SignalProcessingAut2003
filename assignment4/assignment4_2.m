@@ -55,13 +55,13 @@ end
 
 %Display images
 subplot(3,2,1)
-imshow(rgbImg)
+imshow(rgbImg), title('Original')
 subplot(3,2,2)
-imshow(newImgTriangle)
+imshow(newImgTriangle), title('Triangle extracted')
 subplot(3,2,3)
-imshow(newImgCircle)
+imshow(newImgCircle), title('Circle extracted')
 subplot(3,2,4)
-imshow(newImgRectangle)
+imshow(newImgRectangle), title('Rectangle extracted')
 subplot(3,2,5)
-imshow(newImgStar)
+imshow(newImgStar), title('Star extracted')
 

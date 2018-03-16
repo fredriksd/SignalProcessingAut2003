@@ -3,7 +3,13 @@
 %Code that takes gray scale of image, pads it, and convolutes it 
 %with a padded average filter. The result is transformed back into
 %time domain and plotted after being typecasted back to uint8.
+<<<<<<< HEAD
 %This is equivalent to imfilter(grayIm, hAvgFilter, 'conv')
+=======
+%This is equivalent to 
+imfilter(grayIm, hAvgFilter, 'conv')
+
+>>>>>>> 85c662ab43b8d14fba61e0759e5b581aa3733541
 close all, clear all
 I = imread('Static/lenna.png');
 grayIm = double(rgb2gray(I));
