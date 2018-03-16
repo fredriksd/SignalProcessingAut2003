@@ -4,7 +4,6 @@
 %with a padded average filter. The result is transformed back into
 %time domain and plotted after being typecasted back to uint8.
 %This is equivalent to imfilter(grayIm, hAvgFilter, 'conv')
-
 close all, clear all
 I = imread('Static/lenna.png');
 grayIm = double(rgb2gray(I));
@@ -14,6 +13,7 @@ filterCols = 10;
 paddedImgRows = imgRows+2*filterRows;
 paddedImgCols = imgCols + 2*filterCols;
 grayPadded = imresize(grayIm, [paddedImgRows, paddedImgCols]);
+
 grayPadded(filterRows+1:imgRows+filterRows, filterCols...
     +1:imgCols+filterCols) = grayIm;
 
